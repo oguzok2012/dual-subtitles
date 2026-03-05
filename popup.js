@@ -1,3 +1,4 @@
+// popup.js
 document.addEventListener('DOMContentLoaded', () => {
   const topSelect = document.getElementById('topSubs');
   const bottomSelect = document.getElementById('bottomSubs');

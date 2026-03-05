@@ -1,4 +1,5 @@
- function timeToSeconds(timeStr) {
+// parser.js
+function timeToSeconds(timeStr) {
   let parts = timeStr.replace(',', '.').split(':');
   if (parts.length === 3) {
     return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseFloat(parts[2]);
@@ -18,12 +19,16 @@ export function parseVTT(data) {
       let times = timeLine.split('-->');
       let start = timeToSeconds(times[0].trim());
       let end = timeToSeconds(times[1].trim());
+      
       let textIndex = lines.indexOf(timeLine) + 1;
+      let rawLines = lines.slice(textIndex);
       
-      let text = lines.slice(textIndex).join('<br>').replace(/<[^>]+>/g, '');
+      // Сначала очищаем каждую строку от тегов <i>, <b> и тд.
+      let cleanedLines = rawLines.map(line => line.replace(/<[^>]+>/g, '').trim());
       
-      // НОВОЕ: Умный перенос строк (Паттерн: знак препинания + буква без пробела)
-      text = text.replace(/([.,!?-])([a-zA-Zа-яА-ЯёЁ])/g, '$1<br>$2');
+      // Склеиваем через спецсимвол \n (перенос строки)
+      let text = cleanedLines.join('\n');
+      
       
       subs.push({ start, end, text });
     }

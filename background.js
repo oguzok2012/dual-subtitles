@@ -1,3 +1,4 @@
+// background.js
 import { parseVTT } from './parser.js';
 
 // Очистка старых субтитров при смене серии/страницы

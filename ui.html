@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="ui.css">
+  <style>
+    /* Мелкие стили для новых полей ввода тайминга */
+    .timing-group { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+    .timing-box { flex: 1; }
+    .timing-box input[type=number] { width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px; }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -18,8 +24,20 @@
   </div>
 
   <div class="card settings-card">
-    <label>Размер текста: <span id="sizeVal">22</span>px</label>
-    <input type="range" id="fontSize" min="12" max="40" value="22">
+    <label>Синхронизация (миллисекунды):</label>
+    <div class="timing-group">
+      <div class="timing-box">
+        <label style="font-size: 11px;">Верхние (мс):</label>
+        <input type="number" id="topDelay" step="100" value="0" placeholder="-500 или 1000">
+      </div>
+      <div class="timing-box">
+        <label style="font-size: 11px;">Нижние (мс):</label>
+        <input type="number" id="bottomDelay" step="100" value="0" placeholder="-500 или 1000">
+      </div>
+    </div>
+
+    <label>Размер текста: <span id="sizeVal">24</span>px</label>
+    <input type="range" id="fontSize" min="12" max="40" value="24">
     
     <label>Отступ сверху: <span id="topVal">5</span>%</label>
     <input type="range" id="topOffset" min="0" max="50" value="5">
