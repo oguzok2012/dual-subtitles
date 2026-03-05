@@ -1,27 +1,31 @@
 {
   "manifest_version": 3,
   "name": "Dual Subtitles Pro",
-  "version": "1.0",
-  "description": "Показывает двойные субтитры в любых плеерах",
+  "version": "2.0",
+  "description": "Умные двойные субтитры с памятью и настройками",
   "permissions": [
     "webRequest",
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "tabs",
+    "webNavigation"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "ui.html"
   },
+  "options_page": "ui.html",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["renderer.js", "content.js"],
       "all_frames": true
     }
   ]

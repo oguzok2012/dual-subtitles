@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <div class="header">
+    <h2>DualSub Pro</h2>
+    <button id="openTabBtn" title="Открыть в новой вкладке">⧉</button>
+  </div>
+  
+  <div class="card">
+    <label>Верхние субтитры:</label>
+    <select id="topSubs"><option value="none">-- Выключено --</option></select>
+    <label>Нижние субтитры:</label>
+    <select id="bottomSubs"><option value="none">-- Выключено (Оставить с сайта) --</option></select>
+  </div>
+
+  <div class="card settings-card">
+    <label>Размер текста: <span id="sizeVal">22</span>px</label>
+    <input type="range" id="fontSize" min="12" max="40" value="22">
+    
+    <label>Отступ сверху: <span id="topVal">5</span>%</label>
+    <input type="range" id="topOffset" min="0" max="50" value="5">
+    
+    <label>Отступ снизу: <span id="botVal">10</span>%</label>
+    <input type="range" id="bottomOffset" min="0" max="50" value="10">
+  </div>
+
+  <div class="card checkbox-card">
+    <input type="checkbox" id="autoRemember" checked>
+    <label for="autoRemember">Запомнить мой выбор</label>
+  </div>
+
+  <button id="applyBtn" class="primary-btn">Применить к плееру</button>
+
+  <script src="ui.js"></script>
+</body>
+</html>
