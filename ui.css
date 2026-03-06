@@ -107,6 +107,18 @@ select:focus {
   background: #2980b9;
 }
 
-input[type=range] { width: 100%; margin-bottom: 10px; cursor: pointer; }
-.settings-card label { display: flex; justify-content: space-between; font-weight: normal; margin-bottom: 2px;}
-.settings-card span { font-weight: bold; color: #3498db; }
+input[type=range] { 
+    width: 100%; 
+    margin-bottom: 10px; 
+    cursor: pointer; 
+}
+.settings-card label { 
+    display: flex; 
+    justify-content: space-between; 
+    font-weight: normal; 
+    margin-bottom: 2px;
+}
+.settings-card span { 
+    font-weight: bold; 
+    color: #3498db; 
+}
